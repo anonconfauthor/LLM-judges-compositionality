@@ -1,0 +1,145 @@
+{
+    'rubric': """
+ID:
+{pid}
+
+ARTICLE:
+{article}
+
+SUMMARY TO EVALUATE:
+{summary}
+
+
+**COVERAGE**: For this axis, answer the question “how well does the summary cover the important information in the post?” A summary has good coverage if it mentions the main information from the post that's important to understand the situation described in the post. A summary has poor coverage if someone reading only the summary would be missing several important pieces of information about the situation in the post. A summary with good coverage should also match the purpose of the original post (e.g. to ask for advice).
+
+Scoring guiedeline:
+1 = The summary contains no information relevant to the post.
+4 = The summary is missing at least 1 important piece of information required to understand the situation.
+7 = The summary covers all of the important information required to understand the situation.
+
+
+**ACCURACY**: For this axis, answer the question “does the factual information in the summary accurately match the post?” A summary is accurate if it doesn't say things that aren't in the article, it doesn't mix up people, and generally is not misleading. If the summary says anything at all that is not mentioned in the post or contradicts something in the post, it should be given a maximum score of 5.
+Scoring guideline:
+1: The summary is completely wrong, made up, or exactly contradicts what is written in the post.
+4: The summary says at least one substantial thing that is not mentioned in the post, or that contradicts something in the post.
+5: The summary says anything, no matter how small, that is not mentioned in the post, or that contradicts something in the post.
+7: The summary has no incorrect statements or misleading implications.
+
+**COHERENCE**: For this axis, answer the question “how coherent is the summary on its own?” A summary is coherent if, when read by itself, it's easy to understand and free of English errors. A summary is not coherent if it's difficult to understand what the summary is trying to say. Generally, it's more important that the summary is understandable than it being free of grammar errors.
+Scoring guideline:
+1: The summary is impossible to understand.
+4: The summary has mistakes or confusing phrasing that make it a bit hard to understand.
+7: The summary is perfectly clear.
+
+**OVERALL QUALITY**: For this axis, answer the question “how good is the summary overall at representing the post?”  If it's hard to find ways to make the summary better, give the summary a high score. If there are lots of different ways the summary can be made better, give the summary a low score.
+Scoring guideline:
+1: The summary is terrible.
+4: The summary is an okay representation of the post, but could be significantly improved.
+7: The summary is an excellent representation of the post.
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "id": {pid},
+    "variant": "rubric",
+    "reasoning": {{
+        "coverage": "your reasoning for coverage",
+        "accuracy": "your reasoning for accuracy",
+        "coherence": "your reasoning for coherence",
+        "overall": "your reasoning for overall"
+    }},
+    "scores": {{
+        "coverage": (<1-7>,<confidence>)
+        "accuracy": (<1-7>,<confidence>)
+        "coherence": (<1-7>,<confidence>)
+        "overall_quality": (<1-7>,<confidence>)
+    }}
+}}""",
+
+'attribute_first': """
+
+ID:
+{pid}
+
+ARTICLE:
+{article}
+
+SUMMARY:
+{summary}
+
+STEP 1: Rate each attribute independently (1-7 scale):
+
+
+**COVERAGE**: For this axis, consider completeness in addressing main points and answer the question “how well does the summary cover the important information in the post?”
+
+**ACCURACY**: For this axis, consider factual correctness and answer the question “does the factual information in the summary accurately match the post?”
+
+**COHERENCE**: For this axis, consider organization and logical flow, and then answer the question “how coherent is the summary on its own?”
+
+
+Score these WITHOUT considering overall quality yet.
+
+STEP 2: Now, based ONLY on the three scores above, determine the overall quality.
+Explain how you combined the attribute scores.
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "id": {pid},
+    "variant": "attribute_first",
+    "reasoning": {{
+        "coverage": "your reasoning for coverage",
+        "accuracy": "your reasoning for accuracy",
+        "coherence": "your reasoning for coherence",
+        "overall": "your reasoning for overall"
+    }},
+    "scores": {{
+        "coverage": (<1-7>,<confidence>)
+        "accuracy": (<1-7>,<confidence>)
+        "coherence": (<1-7>,<confidence>)
+        "overall_quality": (<1-7>,<confidence>)
+    }}
+}}""",
+
+    'cot': """
+
+ID:
+{pid}
+
+ARTICLE:
+{article}
+
+SUMMARY:
+{summary}
+
+
+EVALUATION PROCESS:
+
+Step 1 - COVERAGE ANALYSIS:
+What are the article's main points? Which are addressed in the summary? What's missing?
+
+Step 2 - ACCURACY CHECK:
+Are the facts stated correctly? Any errors or misleading statements?
+
+Step 3 - COHERENCE ASSESSMENT:
+Is the summary well-organized? Does it flow logically?
+
+Step 4 - OVERALL SYNTHESIS:
+Considering coverage, accuracy, and coherence, what is your overall assessment?
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "id": {pid},
+    "variant": "cot",
+    "reasoning": {{
+        "coverage": "your reasoning for coverage",
+        "accuracy": "your reasoning for accuracy",
+        "coherence": "your reasoning for coherence",
+        "overall": "your reasoning for overall"
+    }},
+    "scores": {{
+        "coverage": (<1-7>,<confidence>)
+        "accuracy": (<1-7>,<confidence>)
+        "coherence": (<1-7>,<confidence>)
+        "overall_quality": (<1-7>,<confidence>)
+    }}
+}}"""
+}

@@ -1,0 +1,210 @@
+{
+    'rubric': """
+
+Dialogue_id:
+{dialogue_id}
+
+CONTEXT:
+{context}
+
+FACT:
+{fact}
+
+DIALOGUE TURN TO EVALUATE:
+{dialogue_turn}
+
+
+
+**UNDERSTANDABLE**: Is the response understandable in the context of the history? (Not if its on
+topic, but for example if it uses pronouns they should make sense)
+
+Scoring guideline:
+Score range is between 0 to 1.
+A score of 0 (no) means that the response is difficult to understand.
+You do not know what the person is trying to say.
+A score of 1 (yes) means that the response is understandable. You
+know what the person is trying to say.
+
+
+**NATURAL**: Is the response naturally written?
+Scoring guideline:
+Score range is between 1 to 3
+A score of 1 (bad) means that the response is unnatural.
+A score of 2 (ok) means the response is strange, but not entirely unnatural.
+A score of 3 (good) means that the response is natural.
+
+
+**MAINTAINS CONTEXT**: Does the response serve as a valid continuation of the conversation history?
+Scoring guideline:
+Score range is between 1 to 3
+A score of 1 (no) means that the response drastically changes topic or ignores
+the conversation history.
+A score of 2 (somewhat) means the response refers to the conversation history
+in a limited capacity (e.g., in a generic way) and shifts the conversation topic.
+A score of 3 (yes) means the response is on topic and strongly acknowledges
+the conversation history.
+
+
+**INTERESTING**: Is the response dull/interesting?
+Scoring guideline:
+Score range is between 1 to 3
+A score of 1 (dull) means that the response is generic and dull.
+A score of 2 (somewhat interesting) means the response is somewhat
+interesting and could engage you in the conversation (e.g., an opinion,
+thought)
+A score of 3 (interesting) means the response is very interesting or
+presents an interesting fact
+
+**USES KNOWLEDGE**:Given the interesting fact that the response is conditioned on, how well
+does the response use the fact?
+Scoring guideline:
+Score range is between 0 to 1
+A score of 0 (no) means the response does not mention or refer to the
+fact at all
+A score of 1 (yes) means the response uses the fact well
+
+**OVERALL QUALITY**: Given your answers above, what is your overall impression of this utterance?
+Scoring guideline:
+Score range is between 1 to 5
+A score of 1 (very bad). A completely invalid response. It would be
+difficult to recover the conversation after this.
+A score of 2 (bad). Valid response, but otherwise poor in quality.
+A score of 3 (neutral) means this response is neither good nor bad.
+This response has no negative qualities, but no positive ones either.
+A score of 4 (good) means this is a good response, but falls short of
+being perfect because of a key flaw.
+A score of 5 (very good) means this response is good and does not
+have any strong flaws.
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "dialogue_id":{dialogue_id},
+    "variant": "rubric",
+    "reasoning": {{
+        "understandable": "your reasoning for understandability",
+        "natural": "your reasoning for naturalness",
+        "context": "your reasoning for contextual maintenance",
+        "interestingess":"your reasoning for interestingness",
+        "knowledge_usage": "your reasoning for knowledge usage",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "understandable": (<0-1>,<confidence>),
+        "natural": (<1-3>,<confidence>),
+        "maintains context": (<1-3>,<confidence>),
+        "interesting": (<1-3>,<confidence>),
+        "uses knowledge": (<0-1>,<confidence>),
+        "overall_quality": (<1-5>,<confidence>),
+    }}
+}}""",
+
+'attribute_first': """
+
+Dialogue_id:
+{dialogue_id}
+
+CONTEXT:
+{context}
+
+FACT:
+{fact}
+
+DIALOGUE TURN TO EVALUATE:
+{dialogue_turn}
+
+STEP 1: Rate each attribute independently with a given scoring range.
+Consider the additional information provided under fact while evaluating the response.:
+
+
+**UNDERSTANDABLE**: Is the response clear and comprehensible? Scoring range (0-1)
+**NATURAL**: Does it sound like natural human conversation? Scoring range (1-3)
+**MAINTAINS CONTEXT**: Does it appropriately reference and build on previous turns? Scoring range (1-3)
+**INTERESTING**: Is the response engaging and not generic? Scoring range (1-3)
+**USES KNOWLEDGE**: Does it appropriately incorporate relevant knowledge? Scoring range (0-1)
+
+Score these WITHOUT considering overall quality yet.
+
+STEP 2: Now, based ONLY on the 5 scores above, determine the overall quality.
+Explain how you combined the attribute scores.
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "dialogue_id":{dialogue_id},
+    "variant": "attribute_first",
+    "reasoning": {{
+        "understandable": "your reasoning for understandability",
+        "natural": "your reasoning for naturalness",
+        "context": "your reasoning for contextual maintenance",
+        "interestingess":"your reasoning for interestingness",
+        "knowledge_usage": "your reasoning for knowledge usage",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "understandable": (<0-1>,<confidence>),
+        "natural": (<1-3>,<confidence>),
+        "maintains context": (<1-3>,<confidence>),
+        "interesting": (<1-3>,<confidence>),
+        "uses knowledge": (<0-1>,<confidence>),
+        "overall_quality": (<1-5>,<confidence>),
+    }}
+}}""",
+
+    'cot': """
+
+Dialogue_id:
+{dialogue_id}
+
+CONTEXT:
+{context}
+
+FACT:
+{fact}
+
+DIALOGUE TURN TO EVALUATE:
+{dialogue_turn}
+
+
+
+EVALUATION PROCESS:
+
+Step 1 - UNDESTANDABILITY ANALYSIS:
+Is the response clear and comprehensible? Scoring range (0-1)
+
+Step 2 - NATURALNESS CHECK:
+Does it sound like natural human conversation? Scoring range (1-3)
+
+Step 3 - CONTEXT ASSESSMENT:
+Does it appropriately reference and build on previous turns? Scoring range (1-3)
+
+Step 4 - INTERESTINGNESS:
+Is the response engaging and not generic? Scoring range (1-3)
+
+Step 5: KNOWLEDGE USAGE:
+Does it appropriately incorporate relevant knowledge? Scoring range (0-1)
+
+Step 6: OVERALL SYNTHESIS:
+Considering above dimensions, what is your overall impression of this utterance?
+Scoring range (1-5)
+
+Provide your evaluation score and reasoning for the score in JSON format:
+{{
+    "dialogue_id":{dialogue_id},
+    "variant": "cot",
+    "reasoning": {{
+        "understandable": "your reasoning for understandability",
+        "natural": "your reasoning for naturalness",
+        "context": "your reasoning for contextual maintenance",
+        "interestingess":"your reasoning for interestingness",
+        "knowledge_usage": "your reasoning for knowledge usage",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "understandable": (<0-1>,<confidence>),
+        "natural": (<1-3>,<confidence>),
+        "maintains context": (<1-3>,<confidence>),
+        "interesting": (<1-3>,<confidence>),
+        "uses knowledge": (<0-1>,<confidence>),
+        "overall_quality": (<1-5>,<confidence>),
+    }}
+}}"""
+}

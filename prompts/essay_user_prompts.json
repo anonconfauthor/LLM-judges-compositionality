@@ -1,0 +1,270 @@
+{
+    'rubric': """
+
+Essay_id:
+{essay_id}
+
+
+ESSAY PROMPT:
+{prompt}
+
+ESSAY TO EVALUATE:
+{essay}
+
+
+
+**CONTENT**:
+This property checks for the amount of content and ideas present in the essay.
+Scoring guideline:
+Scoring range is 1 to 6
+1: The writing lacks a central idea or purpose.
+2: Main ideas and purpose are somewhat unclear or development is attempted but
+minimal.
+3: The reader can understand the main ideas, although they may be overly broad or
+simplistic, and the results may not be effective. Supporting detail is often limited, insubstantial,
+overly general, or occasionally slightly off-topic.
+4: The writing is clear and focused. The reader can easily understand the main ideas.
+Support is present, although it may be limited or rather general.
+5: The writing is clear, focused and interesting. It holds the reader’s attention. Main ideas
+stand out and are developed by supporting details suitable to audience and purpose.
+6: The writing is exceptionally clear, focused, and interesting. It holds the reader’s
+attention throughout. Main ideas stand out and are developed by strong support and rich details
+suitable to audience and purpose.
+
+**ORGANIZATION**:
+This property checks how well structured the essay is.
+Scoring guideline:
+Scoring range is 1 to 6
+1:The essay is awkward and fragmented. Ideas are not self-contained.
+2:Shows little or no evidence of organization.
+3:The essay shows some organization. Its form may not be that of a letter to the editor.
+Its ideas are not necessarily self-contained.
+4:The essay shows satisfactory organization. It contains a basic introduction, body and
+conclusion.
+5:The essay shows good organization. There is a flow of ideas. However, the ideas are
+mostly self-contained. The essay has the appropriate form as a letter to the editor.
+6:The essay is well-organized. There is a clear flow of ideas with each idea
+self-contained (this is where we assume that each idea is contained in a paragraph). The essay
+has the appropriate form as a letter to the editor.
+
+**WORD CHOICE**:
+This property checks the choice and aptness of the vocabulary
+used in the essay.
+Scoring guideline:
+Scoring range is 1 to 6.
+1:The writing shows an extremely limited vocabulary or is so filled with misuses of words
+that the meaning is obscured. Only the most general kind of message is communicated
+because of vague or imprecise language.
+2:Language is monotonous and/or misused, detracting from the meaning and impact.
+3:Language lacks precision and variety, or may be inappropriate to audience and
+purpose in places. The writer does not employ a variety of words, producing a sort of “generic”
+paper filled with familiar words and phrases.
+4:Words effectively convey the intended message. The writer employs a variety of words
+that are functional and appropriate to audience and purpose.
+5:Words convey the intended message in an interesting, precise, and natural way
+appropriate to audience and purpose. The writer employs a broad range of words which have
+been carefully chosen and thoughtfully placed for impact.
+6: Words convey the intended message in an exceptionally interesting, precise, and
+natural way appropriate to audience and purpose. The writer employs a rich, broad range of
+words which have been carefully chosen and thoughtfully placed for impact.
+
+**SENTENCE FLUENCY**
+This property checks the quality of the sentences in the
+essay.
+Scoring guideline:
+Scoring range is 1 to 6
+1:The writing is difficult to follow or to read aloud. Sentences tend to be incomplete,
+rambling, or very awkward.
+2:The writing tends to be either choppy or rambling. Awkward constructions often force
+the reader to slow down or reread.
+3:The writing tends to be mechanical rather than fluid. Occasional awkward
+constructions may force the reader to slow down or reread.
+4:The writing flows; however, connections between phrases or sentences may be less
+than fluid. Sentence patterns are somewhat varied, contributing to ease in oral reading.
+5:The writing has an easy flow and rhythm. Sentences are carefully crafted, with strong
+and varied structure that makes expressive oral reading easy and enjoyable.
+6:The writing has an effective flow and rhythm. Sentences show a high degree of
+craftsmanship, with consistently strong and varied structure that makes expressive oral reading
+easy and enjoyable.
+
+**CONVENTIONS**:
+This property checks overall writing conventions to be followed,
+like spelling, punctuations, etc.
+Scoring guideline:
+Scoring range is 1 to 6
+1:Numerous errors in usage, spelling, capitalization, and punctuation repeatedly distract
+the reader and make the text difficult to read. In fact, the severity and frequency of errors are so
+overwhelming that the reader finds it difficult to focus on the message and must reread for
+meaning.
+2:The writing demonstrates little control of standard writing conventions. Frequent,
+significant errors impede readability.
+3:The writing demonstrates limited control of standard writing conventions (e.g.,
+punctuation, spelling, capitalization, grammar and usage). Errors begin to impede readability.
+4:The writing demonstrates control of standard writing conventions (e.g., punctuation,
+spelling, capitalization, grammar and usage). Significant errors do not occur frequently. Minor
+errors, while perhaps noticeable, do not impede readability.
+5:The writing demonstrates strong control of standard writing conventions (e.g.,
+punctuation, spelling, capitalization, grammar and usage) and uses them effectively to enhance
+communication. Errors are few and minor. Conventions support readability.
+6:The writing demonstrates exceptionally strong control of standard writing conventions
+(e.g., punctuation, spelling, capitalization, grammar and usage) and uses them effectively to
+enhance communication. Errors are so few and so minor that the reader can easily skim right
+over them unless specifically searching for them.
+
+**OVERALL QUALITY**:
+Provide overal quality score for the essay
+Scoring range is 1 to 6
+
+Provide your evaluation scores and reasoning for the score in JSON format:
+{{
+    "essay_id":{essay_id},
+    "variant": "rubric",
+    "reasoning": {{
+        "content": "your reasoning for content",
+        "organization": "your reasoning for organization",
+        "word choice": "your reasoning for word choice",
+        "sentence fluency":"your reasoning for sentence fluency",
+        "conventions": "your reasoning for conventions",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "content": (<1-6>,<confidence>),
+    "organization": (<1-6>,<confidence>),
+    "word choice": (<1-6>,<confidence>),
+    "sentence fluency": (<1-6>,<confidence>),
+    "conventions": (<1-6>,<confidence>),
+    "overall_quality": (<1-6>,<confidence>),
+    }}
+}}""",
+
+'attribute_first': """
+
+Essay_id:
+{essay_id}
+
+
+ESSAY PROMPT:
+{prompt}
+
+ESSAY TO EVALUATE:
+{essay}
+
+
+
+**CONTENT**:
+This property checks for the amount of content and ideas present in the essay.
+Scoring range is 1 to 6
+
+
+**ORGANIZATION**:
+This property checks how well structured the essay is.
+Scoring range is 1 to 6
+
+
+**WORD CHOICE**:
+This property checks the choice and aptness of the vocabulary
+used in the essay.
+Scoring range is 1 to 6.
+
+
+**SENTENCE FLUENCY**
+This property checks the quality of the sentences in the
+essay.
+Scoring range is 1 to 6
+
+
+**CONVENTIONS**:
+This property checks overall writing conventions to be followed,
+like spelling, punctuations, etc.
+Scoring range is 1 to 6
+
+
+Score these WITHOUT considering overall quality yet.
+
+STEP 2: Now, based ONLY on the 5 scores above, determine the overall quality.
+Explain how you combined the attribute scores.
+
+Provide your evaluation scores and reasoning for the score in JSON format:
+{{
+    "essay_id":{essay_id},
+    "variant": "attribute_first",
+    "reasoning": {{
+        "content": "your reasoning for content",
+        "organization": "your reasoning for organization",
+        "word choice": "your reasoning for word choice",
+        "sentence fluency":"your reasoning for sentence fluency",
+        "conventions": "your reasoning for conventions",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "content": (<1-6>,<confidence>),
+    "organization": (<1-6>,<confidence>),
+    "word choice": (<1-6>,<confidence>),
+    "sentence fluency": (<1-6>,<confidence>),
+    "conventions": (<1-6>,<confidence>),
+    "overall_quality": (<1-6>,<confidence>),
+    }}
+}}""",
+
+    'cot': """
+
+Essay_id:
+{essay_id}
+
+ESSAY PROMPT:
+{prompt}
+
+ESSAY TO EVALUATE:
+{essay}
+
+
+EVALUATION PROCESS:
+
+Step 1: CONTENT CHECK:
+This property checks for the amount of content and ideas present in the essay.(1 to 6)
+
+
+Step 2: ORGANIZATION:
+This property checks how well structured the essay is.(1 to 6)
+
+
+Step 3: WORD CHOICE:
+This property checks the choice and aptness of the vocabulary
+used in the essay. (1 to 6)
+
+
+Step 4:SENTENCE FLUENCY:
+This property checks the quality of the sentences in the
+essay.(1 to 6)
+
+
+Step 5: CONVENTIONS:
+This property checks overall writing conventions to be followed,
+like spelling, punctuations, etc.( is 1 to 6)
+
+Step 6: OVERALL SYNTHESIS:
+Considering above dimensions, what is your overall impression of this essay?
+Scoring range (1-6)
+
+Provide your evaluation scores and reasoning for the score in JSON format:
+{{
+    "essay_id":{essay_id},
+    "variant": "cot",
+    "reasoning": {{
+        "content": "your reasoning for content",
+        "organization": "your reasoning for organization",
+        "word choice": "your reasoning for word choice",
+        "sentence fluency":"your reasoning for sentence fluency",
+        "conventions": "your reasoning for conventions",
+        "overall": "your reasoning for overall quality"
+    }},
+    "scores": {{
+       "content": (<1-6>,<confidence>),
+    "organization": (<1-6>,<confidence>),
+    "word choice": (<1-6>,<confidence>),
+    "sentence fluency": (<1-6>,<confidence>),
+    "conventions": (<1-6>,<confidence>),
+    "overall_quality": (<1-6>,<confidence>),
+    }}
+}}"""
+}
